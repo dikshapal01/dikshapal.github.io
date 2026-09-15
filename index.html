@@ -1,157 +1,504 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Diksha Pal | Portfolio</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            background: #f5f7fa;
-            color: #222;
-        }
+<title>Diksha Pal | Portfolio</title>
 
-        header {
-            background: #111827;
-            color: white;
-            text-align: center;
-            padding: 70px 20px;
-        }
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        header h1 {
-            font-size: 45px;
-            margin-bottom: 10px;
-        }
+html {
+    scroll-behavior: smooth;
+}
 
-        header p {
-            font-size: 20px;
-        }
+body {
+    font-family: Arial, sans-serif;
+    background: #f7f8fc;
+    color: #222;
+    line-height: 1.6;
+}
 
-        nav {
-            text-align: center;
-            padding: 18px;
-            background: white;
-        }
+/* Navigation */
+nav {
+    position: sticky;
+    top: 0;
+    background: white;
+    padding: 18px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    z-index: 1000;
+}
 
-        nav a {
-            margin: 0 15px;
-            text-decoration: none;
-            color: #111827;
-            font-weight: bold;
-        }
+.logo {
+    font-size: 22px;
+    font-weight: bold;
+}
 
-        section {
-            max-width: 900px;
-            margin: auto;
-            padding: 45px 20px;
-        }
+nav a {
+    text-decoration: none;
+    color: #333;
+    margin-left: 22px;
+    font-weight: 600;
+}
 
-        h2 {
-            font-size: 28px;
-            border-bottom: 2px solid #ddd;
-            padding-bottom: 10px;
-        }
+nav a:hover {
+    color: #4f46e5;
+}
 
-        .card {
-            background: white;
-            padding: 22px;
-            margin: 20px 0;
-            border-radius: 10px;
-        }
+/* Hero */
+.hero {
+    min-height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 50px 20px;
+    background: linear-gradient(135deg, #eef2ff, #ffffff);
+}
 
-        footer {
-            text-align: center;
-            padding: 25px;
-            background: #111827;
-            color: white;
-        }
+.hero h1 {
+    font-size: 58px;
+    margin-bottom: 10px;
+}
 
-        a {
-            color: #2563eb;
-        }
-    </style>
+.hero h1 span {
+    color: #4f46e5;
+}
+
+.hero h2 {
+    font-size: 24px;
+    font-weight: normal;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    max-width: 700px;
+    margin: auto;
+    color: #555;
+    font-size: 17px;
+}
+
+.buttons {
+    margin-top: 30px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 25px;
+    margin: 8px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    background: #4f46e5;
+    color: white;
+}
+
+.btn:hover {
+    opacity: 0.85;
+}
+
+.btn-outline {
+    background: white;
+    color: #4f46e5;
+    border: 2px solid #4f46e5;
+}
+
+/* Sections */
+section {
+    padding: 75px 10%;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 34px;
+    margin-bottom: 40px;
+}
+
+.section-title span {
+    color: #4f46e5;
+}
+
+/* About */
+.about {
+    max-width: 850px;
+    margin: auto;
+    text-align: center;
+    font-size: 17px;
+    color: #555;
+}
+
+/* Skills */
+.skills {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;
+    max-width: 900px;
+    margin: auto;
+}
+
+.skill {
+    background: white;
+    padding: 25px;
+    text-align: center;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.07);
+    font-weight: bold;
+}
+
+/* Cards */
+.cards {
+    max-width: 900px;
+    margin: auto;
+}
+
+.card {
+    background: white;
+    padding: 30px;
+    margin-bottom: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.07);
+}
+
+.card h3 {
+    color: #4f46e5;
+    margin-bottom: 8px;
+}
+
+/* Interests */
+.interests {
+    text-align: center;
+}
+
+.interest {
+    display: inline-block;
+    background: white;
+    padding: 12px 20px;
+    margin: 8px;
+    border-radius: 25px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.06);
+}
+
+/* Contact */
+.contact {
+    text-align: center;
+}
+
+.contact a {
+    color: #4f46e5;
+    text-decoration: none;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 25px;
+    background: #111827;
+    color: white;
+}
+
+/* Mobile */
+@media (max-width: 700px) {
+    nav {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    nav a {
+        margin: 0 6px;
+        font-size: 14px;
+    }
+
+    .hero h1 {
+        font-size: 42px;
+    }
+
+    section {
+        padding: 55px 6%;
+    }
+}
+</style>
 </head>
 
 <body>
 
-<header>
-    <h1>Diksha Pal</h1>
-    <p>BBA Student | AI & ML Enthusiast | Business Analytics</p>
-</header>
-
+<!-- Navigation -->
 <nav>
-    <a href="#about">About</a>
-    <a href="#skills">Skills</a>
-    <a href="#education">Education</a>
-    <a href="#projects">Projects</a>
-    <a href="#contact">Contact</a>
+    <div class="logo">Diksha Pal</div>
+
+    <div>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#education">Education</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+    </div>
 </nav>
 
+<!-- Hero -->
+<header class="hero">
+    <div>
+        <h1>Hi, I'm <span>Diksha Pal</span> 👋</h1>
+
+        <h2>BBA Student | AI & ML Enthusiast | Business Analytics</h2>
+
+        <p>
+            A motivated BBA student interested in Artificial Intelligence,
+            Machine Learning, Business Analytics, Digital Technologies
+            and Digital Marketing.
+        </p>
+
+        <div class="buttons">
+            <a href="#projects" class="btn">View My Projects</a>
+
+            <a href="#contact" class="btn btn-outline">
+                Contact Me
+            </a>
+        </div>
+    </div>
+</header>
+
+<!-- About -->
 <section id="about">
-    <h2>About Me</h2>
-    <div class="card">
+    <h2 class="section-title">About <span>Me</span></h2>
+
+    <div class="about">
         <p>
             I am a second-year Bachelor of Business Administration student
             at Allenhouse Business School. I am interested in Artificial
             Intelligence, Machine Learning, Business Analytics, Digital
             Technologies and Digital Marketing.
         </p>
-    </div>
-</section>
 
-<section id="skills">
-    <h2>Skills</h2>
-    <div class="card">
-        <p>Microsoft Excel</p>
-        <p>Microsoft Word</p>
-        <p>PowerPoint</p>
-        <p>Digital Marketing</p>
-        <p>Social Media Content Creation</p>
-        <p>Communication & Teamwork</p>
-        <p>Time Management</p>
-    </div>
-</section>
+        <br>
 
-<section id="education">
-    <h2>Education</h2>
-    <div class="card">
-        <h3>Bachelor of Business Administration (BBA)</h3>
-        <p>Allenhouse Business School</p>
-        <p>CGPA: 8.0/10 | Expected Graduation: 2028</p>
-
-        <h3>Intermediate</h3>
-        <p>UP Kirana Seva Samiti Balika Vidyalaya</p>
-        <p>Completed: 2025</p>
-    </div>
-</section>
-
-<section id="projects">
-    <h2>Projects</h2>
-    <div class="card">
         <p>
-            Projects in Artificial Intelligence, Machine Learning,
-            Data Analysis and Business Analytics — coming soon.
+            I am continuously developing my technical, analytical,
+            communication, teamwork and time-management skills while
+            exploring technology-driven business solutions.
         </p>
     </div>
 </section>
 
+<!-- Skills -->
+<section id="skills">
+    <h2 class="section-title">My <span>Skills</span></h2>
+
+    <div class="skills">
+
+        <div class="skill">Microsoft Excel</div>
+
+        <div class="skill">Microsoft Word</div>
+
+        <div class="skill">PowerPoint</div>
+
+        <div class="skill">Digital Marketing</div>
+
+        <div class="skill">Social Media Content</div>
+
+        <div class="skill">Communication</div>
+
+        <div class="skill">Teamwork</div>
+
+        <div class="skill">Time Management</div>
+
+        <div class="skill">Adaptability</div>
+
+    </div>
+</section>
+
+<!-- Education -->
+<section id="education">
+    <h2 class="section-title">My <span>Education</span></h2>
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>Bachelor of Business Administration (BBA)</h3>
+
+            <p><strong>Allenhouse Business School</strong></p>
+
+            <p>
+                Second Year | CGPA: 8.0/10 |
+                Expected Graduation: 2028
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>Intermediate</h3>
+
+            <p>
+                <strong>
+                    UP Kirana Seva Samiti Balika Vidyalaya
+                </strong>
+            </p>
+
+            <p>Completed: 2025</p>
+        </div>
+
+    </div>
+</section>
+
+<!-- Experience -->
+<section id="experience">
+    <h2 class="section-title">Internship <span>Experience</span></h2>
+
+    <div class="cards">
+
+        <div class="card">
+
+            <h3>
+                Digital Marketing and Social Media Content Creation Intern
+            </h3>
+
+            <p>
+                Created and supported social media content as part of
+                an internship experience focused on digital marketing.
+            </p>
+
+            <br>
+
+            <p>
+                Communicated and interacted with people to support
+                content-related activities and strengthen interpersonal
+                communication.
+            </p>
+
+            <br>
+
+            <p>
+                Developed communication and time-management skills
+                through practical workplace activities.
+            </p>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- Projects -->
+<section id="projects">
+
+    <h2 class="section-title">My <span>Projects</span></h2>
+
+    <div class="cards">
+
+        <div class="card">
+
+            <h3>AI & Business Projects</h3>
+
+            <p>
+                Currently building technical and business-oriented
+                projects to develop practical skills in Artificial
+                Intelligence, Machine Learning, data analysis and
+                digital technologies.
+            </p>
+
+            <br>
+
+            <p>
+                Projects will be added here as they are completed.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- Certifications -->
+<section>
+
+    <h2 class="section-title">
+        Certifications & <span>Achievements</span>
+    </h2>
+
+    <div class="cards">
+
+        <div class="card">
+
+            <p>
+                ✓ Digital Marketing and Social Media Content Creation
+                Internship Certificate
+            </p>
+
+            <br>
+
+            <p>
+                ✓ Certificates through participation and achievements
+                in multiple competitions
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- Interests -->
+<section>
+
+    <h2 class="section-title">
+        Areas of <span>Interest</span>
+    </h2>
+
+    <div class="interests">
+
+        <span class="interest">Artificial Intelligence</span>
+
+        <span class="interest">Machine Learning</span>
+
+        <span class="interest">Business Analytics</span>
+
+        <span class="interest">Data Analysis</span>
+
+        <span class="interest">Digital Marketing</span>
+
+        <span class="interest">Technology & Business</span>
+
+    </div>
+
+</section>
+
+<!-- Contact -->
 <section id="contact">
-    <h2>Contact</h2>
-    <div class="card">
-        <p>Email: <a href="mailto:paldiksha283@gmail.com">paldiksha283@gmail.com</a></p>
+
+    <h2 class="section-title">
+        Contact <span>Me</span>
+    </h2>
+
+    <div class="contact">
+
         <p>
-            GitHub:
-            <a href="https://github.com/dikshapal">
-                github.com/dikshapal
+            📧
+            <a href="mailto:paldiksha283@gmail.com">
+                paldiksha283@gmail.com
             </a>
         </p>
+
+        <br>
+
+        <p>
+            💻
+            <a href="https://github.com/dikshapal">
+                GitHub Profile
+            </a>
+        </p>
+
     </div>
+
 </section>
 
 <footer>
-    <p>© 2026 Diksha Pal</p>
+    <p>© 2026 Diksha Pal | Portfolio</p>
 </footer>
 
 </body>
