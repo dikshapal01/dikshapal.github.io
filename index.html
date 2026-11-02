@@ -5,8 +5,20 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Diksha Pal | Portfolio</title>
+<meta name="description" content="Explore Diksha Pal's portfolio, education, skills, projects and professional interests.">
 
 <style>
+:root {
+    --bg: #080b16;
+    --surface: #101629;
+    --surface-light: #171e35;
+    --text: #f4f6ff;
+    --muted: #a6afc8;
+    --purple: #a78bfa;
+    --teal: #5eead4;
+    --border: rgba(255,255,255,0.10);
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -15,213 +27,621 @@
 
 html {
     scroll-behavior: smooth;
+    scroll-padding-top: 90px;
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background: #f7f8fc;
-    color: #222;
-    line-height: 1.6;
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    overflow-x: hidden;
+}
+
+a {
+    color: inherit;
+}
+
+.container {
+    width: min(1100px, 90%);
+    margin: auto;
+}
+
+.gradient-text {
+    background: linear-gradient(90deg, var(--purple), var(--teal));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.eyebrow {
+    display: inline-block;
+    color: var(--teal);
+    font-size: 13px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-bottom: 15px;
 }
 
 /* Navigation */
+
 nav {
     position: sticky;
     top: 0;
-    background: white;
-    padding: 18px 8%;
+    z-index: 1000;
+    background: rgba(8,11,22,0.90);
+    backdrop-filter: blur(18px);
+    border-bottom: 1px solid var(--border);
+}
+
+.nav-inner {
+    min-height: 76px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-    z-index: 1000;
+    gap: 20px;
 }
 
 .logo {
-    font-size: 22px;
-    font-weight: bold;
-}
-
-nav a {
+    font-size: 23px;
+    font-weight: 800;
     text-decoration: none;
-    color: #333;
-    margin-left: 22px;
-    font-weight: 600;
+    white-space: nowrap;
 }
 
-nav a:hover {
-    color: #4f46e5;
+.logo span {
+    color: var(--teal);
+}
+
+.nav-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 23px;
+}
+
+.nav-links a {
+    color: var(--muted);
+    font-size: 13px;
+    text-decoration: none;
+    transition: color .25s;
+}
+
+.nav-links a:hover {
+    color: var(--teal);
 }
 
 /* Hero */
+
 .hero {
-    min-height: 90vh;
+    min-height: 85vh;
     display: flex;
-    justify-content: center;
     align-items: center;
-    text-align: center;
-    padding: 50px 20px;
-    background: linear-gradient(135deg, #eef2ff, #ffffff);
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    width: 450px;
+    height: 450px;
+    background: rgba(124,58,237,.18);
+    filter: blur(110px);
+    border-radius: 50%;
+    top: 0;
+    right: -100px;
+    z-index: -1;
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    background: rgba(45,212,191,.10);
+    filter: blur(100px);
+    border-radius: 50%;
+    bottom: 0;
+    left: -100px;
+    z-index: -1;
+}
+
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 55px;
+    align-items: center;
+    padding-top: 65px;
+    padding-bottom: 65px;
 }
 
 .hero h1 {
-    font-size: 58px;
-    margin-bottom: 10px;
-}
-
-.hero h1 span {
-    color: #4f46e5;
+    font-size: clamp(42px, 6vw, 72px);
+    line-height: 1.12;
+    letter-spacing: -2px;
+    margin-bottom: 22px;
 }
 
 .hero h2 {
-    font-size: 24px;
-    font-weight: normal;
+    font-size: clamp(18px, 2.5vw, 23px);
+    font-weight: 500;
+    color: #d4d9ec;
     margin-bottom: 20px;
 }
 
 .hero p {
-    max-width: 700px;
-    margin: auto;
-    color: #555;
-    font-size: 17px;
+    color: var(--muted);
+    max-width: 620px;
+    font-size: 16px;
 }
 
 .buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
     margin-top: 30px;
 }
 
 .btn {
-    display: inline-block;
-    padding: 12px 25px;
-    margin: 8px;
-    border-radius: 8px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 12px 22px;
+    border-radius: 10px;
+    background: linear-gradient(110deg, #8b5cf6, #6366f1);
+    color: white;
     text-decoration: none;
     font-weight: bold;
-    background: #4f46e5;
-    color: white;
+    border: 1px solid transparent;
+    transition: transform .25s, box-shadow .25s;
 }
 
 .btn:hover {
-    opacity: 0.85;
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px rgba(139,92,246,.25);
 }
 
 .btn-outline {
-    background: white;
-    color: #4f46e5;
-    border: 2px solid #4f46e5;
+    background: transparent;
+    border-color: var(--border);
+    color: var(--text);
+}
+
+.btn-outline:hover {
+    border-color: var(--teal);
+}
+
+.profile-card {
+    background: linear-gradient(145deg, #171e35, #0e1324);
+    border: 1px solid rgba(167,139,250,.28);
+    border-radius: 28px;
+    padding: 35px 25px;
+    text-align: center;
+    box-shadow: 0 25px 70px rgba(0,0,0,.25);
+    animation: float 5s ease-in-out infinite;
+}
+
+.profile-avatar {
+    width: 130px;
+    height: 130px;
+    margin: 0 auto 22px;
+    border-radius: 35px;
+    display: grid;
+    place-items: center;
+    font-size: 48px;
+    font-weight: 800;
+    color: white;
+    background: linear-gradient(135deg, #8b5cf6, #2dd4bf);
+    box-shadow: 0 12px 40px rgba(139,92,246,.20);
+}
+
+.profile-card h3 {
+    font-size: 23px;
+    margin-bottom: 5px;
+}
+
+.profile-card p {
+    font-size: 14px;
+    color: var(--muted);
+}
+
+.status {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 20px;
+    padding: 8px 13px;
+    border-radius: 30px;
+    border: 1px solid var(--border);
+    color: #c9fbe8;
+    font-size: 12px;
+}
+
+.status-dot {
+    height: 8px;
+    width: 8px;
+    border-radius: 50%;
+    background: var(--teal);
 }
 
 /* Sections */
+
 section {
-    padding: 75px 10%;
+    padding: 90px 0;
 }
 
-.section-title {
+.section-heading {
     text-align: center;
-    font-size: 34px;
-    margin-bottom: 40px;
+    margin-bottom: 45px;
 }
 
-.section-title span {
-    color: #4f46e5;
+.section-heading h2 {
+    font-size: clamp(30px, 4vw, 42px);
+    line-height: 1.25;
+    margin-bottom: 12px;
+}
+
+.section-heading p {
+    color: var(--muted);
+    max-width: 620px;
+    margin: auto;
+    font-size: 15px;
+}
+
+.section-alt {
+    background: rgba(255,255,255,.018);
+    border-top: 1px solid rgba(255,255,255,.035);
+    border-bottom: 1px solid rgba(255,255,255,.035);
 }
 
 /* About */
-.about {
+
+.about-box {
     max-width: 850px;
     margin: auto;
-    text-align: center;
-    font-size: 17px;
-    color: #555;
+    padding: 32px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+}
+
+.about-box p {
+    color: var(--muted);
+    margin-bottom: 17px;
+}
+
+.about-box p:last-child {
+    margin-bottom: 0;
 }
 
 /* Skills */
-.skills {
+
+.skills-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 20px;
-    max-width: 900px;
-    margin: auto;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
 }
 
-.skill {
-    background: white;
-    padding: 25px;
-    text-align: center;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.07);
+.skill-card {
+    padding: 24px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    transition: transform .25s, border-color .25s;
+}
+
+.skill-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(94,234,212,.55);
+}
+
+.skill-icon {
+    font-size: 27px;
+    margin-bottom: 10px;
+}
+
+.skill-card h3 {
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.skill-card p {
+    font-size: 13px;
+    color: var(--muted);
+}
+
+/* Timeline */
+
+.timeline {
+    max-width: 800px;
+    margin: auto;
+    border-left: 2px solid rgba(167,139,250,.45);
+    padding-left: 30px;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 25px;
+    padding: 26px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+}
+
+.timeline-item:last-child {
+    margin-bottom: 0;
+}
+
+.timeline-item::before {
+    content: "";
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--teal);
+    left: -37px;
+    top: 33px;
+    box-shadow: 0 0 15px rgba(94,234,212,.4);
+}
+
+.timeline-item h3 {
+    font-size: 19px;
+    margin-bottom: 5px;
+}
+
+.timeline-item .meta {
+    color: var(--teal);
+    font-size: 13px;
+    margin-bottom: 12px;
+}
+
+.timeline-item p,
+.timeline-item li {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.timeline-item ul {
+    padding-left: 20px;
+    margin-top: 10px;
+}
+
+/* Projects */
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+}
+
+.project-card {
+    padding: 28px;
+    border-radius: 20px;
+    background: linear-gradient(145deg, var(--surface-light), var(--surface));
+    border: 1px solid var(--border);
+    transition: transform .25s, border-color .25s;
+}
+
+.project-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(167,139,250,.55);
+}
+
+.project-number {
+    font-size: 13px;
+    color: var(--teal);
+    letter-spacing: 2px;
     font-weight: bold;
 }
 
-/* Cards */
-.cards {
-    max-width: 900px;
-    margin: auto;
+.project-card h3 {
+    font-size: 21px;
+    margin: 14px 0 10px;
 }
 
-.card {
-    background: white;
-    padding: 30px;
-    margin-bottom: 20px;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.07);
+.project-card p {
+    color: var(--muted);
+    font-size: 14px;
 }
 
-.card h3 {
-    color: #4f46e5;
-    margin-bottom: 8px;
+.project-tag {
+    display: inline-block;
+    margin: 18px 6px 0 0;
+    padding: 5px 10px;
+    background: rgba(167,139,250,.10);
+    color: #d7c7ff;
+    border-radius: 7px;
+    font-size: 12px;
 }
 
 /* Interests */
+
 .interests {
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
 }
 
 .interest {
-    display: inline-block;
-    background: white;
-    padding: 12px 20px;
-    margin: 8px;
-    border-radius: 25px;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.06);
+    padding: 10px 17px;
+    border-radius: 30px;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: #d8def1;
+    font-size: 14px;
+    transition: border-color .25s, color .25s;
+}
+
+.interest:hover {
+    border-color: var(--teal);
+    color: var(--teal);
 }
 
 /* Contact */
-.contact {
+
+.contact-box {
+    max-width: 750px;
+    margin: auto;
+    padding: 40px 25px;
     text-align: center;
+    background: linear-gradient(145deg, #151c32, #0e1324);
+    border: 1px solid var(--border);
+    border-radius: 24px;
 }
 
-.contact a {
-    color: #4f46e5;
+.contact-box > p {
+    color: var(--muted);
+    margin: 10px 0 25px;
+}
+
+.contact-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+}
+
+.contact-link {
+    padding: 11px 16px;
     text-decoration: none;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    color: #e2e7f7;
+    font-size: 14px;
+    transition: border-color .25s;
+}
+
+.contact-link:hover {
+    border-color: var(--teal);
 }
 
 /* Footer */
+
 footer {
     text-align: center;
-    padding: 25px;
-    background: #111827;
-    color: white;
+    padding: 27px 15px;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 13px;
 }
 
-/* Mobile */
-@media (max-width: 700px) {
-    nav {
+footer span {
+    color: var(--teal);
+}
+
+/* Animations */
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero-copy {
+    animation: appear .8s ease both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        scroll-behavior: auto !important;
+        animation: none !important;
+        transition: none !important;
+    }
+}
+
+/* Responsive */
+
+@media (max-width: 800px) {
+    .nav-inner {
+        padding: 15px 0;
         flex-direction: column;
-        gap: 12px;
+        align-items: flex-start;
     }
 
-    nav a {
-        margin: 0 6px;
-        font-size: 14px;
+    .nav-links {
+        gap: 12px 18px;
     }
 
-    .hero h1 {
-        font-size: 42px;
+    .hero {
+        min-height: auto;
+    }
+
+    .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 35px;
+        padding-top: 70px;
+        padding-bottom: 70px;
+    }
+
+    .profile-card {
+        max-width: 420px;
+        width: 100%;
+        margin: auto;
+    }
+
+    .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr;
     }
 
     section {
-        padding: 55px 6%;
+        padding: 65px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        width: 90%;
+    }
+
+    .hero h1 {
+        letter-spacing: -1px;
+    }
+
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .about-box,
+    .project-card,
+    .timeline-item {
+        padding: 22px;
+    }
+
+    .timeline {
+        padding-left: 22px;
+    }
+
+    .timeline-item::before {
+        left: -29px;
+    }
+
+    .nav-links {
+        gap: 10px 14px;
+    }
+
+    .nav-links a {
+        font-size: 12px;
     }
 }
 </style>
@@ -231,280 +651,345 @@ footer {
 
 <!-- Navigation -->
 <nav>
-    <div class="logo">Diksha Pal</div>
+    <div class="container nav-inner">
+        <a class="logo" href="#home">Diksha<span>.</span></a>
 
-    <div>
-        <a href="#about">About</a>
-        <a href="#skills">Skills</a>
-        <a href="#education">Education</a>
-        <a href="#experience">Experience</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
+        <div class="nav-links">
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#education">Education</a>
+            <a href="#experience">Experience</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </div>
     </div>
 </nav>
 
 <!-- Hero -->
-<header class="hero">
-    <div>
-        <h1>Hi, I'm <span>Diksha Pal</span> 👋</h1>
+<header class="hero" id="home">
+    <div class="container hero-grid">
 
-        <h2>BBA Student | AI & ML Enthusiast | Business Analytics</h2>
+        <div class="hero-copy">
+            <span class="eyebrow">Welcome to my portfolio</span>
 
-        <p>
-            A motivated BBA student interested in Artificial Intelligence,
-            Machine Learning, Business Analytics, Digital Technologies
-            and Digital Marketing.
-        </p>
+            <h1>
+                Hi, I'm<br>
+                <span class="gradient-text">Diksha Pal.</span>
+            </h1>
 
-        <div class="buttons">
-            <a href="#projects" class="btn">View My Projects</a>
+            <h2>BBA Student | Business & Technology Enthusiast</h2>
 
-            <a href="#contact" class="btn btn-outline">
-                Contact Me
-            </a>
+            <p>
+                I am a BBA student exploring the intersection of business,
+                digital marketing, analytics and emerging technologies.
+                I enjoy learning new skills and discovering practical ways
+                to solve business problems.
+            </p>
+
+            <div class="buttons">
+                <a href="#projects" class="btn">Explore My Work ↗</a>
+                <a href="#contact" class="btn btn-outline">Let's Connect</a>
+            </div>
         </div>
+
+        <div class="profile-card">
+            <div class="profile-avatar" aria-label="Diksha Pal initials">
+                DP
+            </div>
+
+            <h3>Diksha Pal</h3>
+            <p>BBA Student</p>
+            <p>Business · Creativity · Technology</p>
+
+            <div class="status">
+                <span class="status-dot"></span>
+                Learning and growing every day
+            </div>
+        </div>
+
     </div>
 </header>
 
+<main>
+
 <!-- About -->
 <section id="about">
-    <h2 class="section-title">About <span>Me</span></h2>
+    <div class="container">
 
-    <div class="about">
-        <p>
-            I am a second-year Bachelor of Business Administration student
-            at Allenhouse Business School. I am interested in Artificial
-            Intelligence, Machine Learning, Business Analytics, Digital
-            Technologies and Digital Marketing.
-        </p>
+        <div class="section-heading">
+            <span class="eyebrow">A little about me</span>
+            <h2>About <span class="gradient-text">Me</span></h2>
+            <p>My interests, learning journey and professional goals.</p>
+        </div>
 
-        <br>
+        <div class="about-box">
+            <p>
+                I am a second-year Bachelor of Business Administration
+                student at Allenhouse Business School. I am interested
+                in business management, digital marketing, business
+                analytics and emerging technologies.
+            </p>
 
-        <p>
-            I am continuously developing my technical, analytical,
-            communication, teamwork and time-management skills while
-            exploring technology-driven business solutions.
-        </p>
+            <p>
+                I am working on developing my communication, analytical,
+                teamwork and digital skills. My goal is to combine
+                business knowledge with practical digital tools and
+                creative thinking.
+            </p>
+
+            <p>
+                I believe in continuous learning, staying curious and
+                improving through new projects and experiences.
+            </p>
+        </div>
+
     </div>
 </section>
 
 <!-- Skills -->
-<section id="skills">
-    <h2 class="section-title">My <span>Skills</span></h2>
+<section class="section-alt" id="skills">
+    <div class="container">
 
-    <div class="skills">
+        <div class="section-heading">
+            <span class="eyebrow">What I bring</span>
+            <h2>My <span class="gradient-text">Skills</span></h2>
+            <p>Business, productivity and interpersonal skills.</p>
+        </div>
 
-        <div class="skill">Microsoft Excel</div>
+        <div class="skills-grid">
 
-        <div class="skill">Microsoft Word</div>
+            <div class="skill-card">
+                <div class="skill-icon">📊</div>
+                <h3>Microsoft Excel</h3>
+                <p>Spreadsheets and organizing information.</p>
+            </div>
 
-        <div class="skill">PowerPoint</div>
+            <div class="skill-card">
+                <div class="skill-icon">📝</div>
+                <h3>Microsoft Word</h3>
+                <p>Document creation and formatting.</p>
+            </div>
 
-        <div class="skill">Digital Marketing</div>
+            <div class="skill-card">
+                <div class="skill-icon">🎯</div>
+                <h3>PowerPoint</h3>
+                <p>Presentation design and content organization.</p>
+            </div>
 
-        <div class="skill">Social Media Content</div>
+            <div class="skill-card">
+                <div class="skill-icon">📱</div>
+                <h3>Digital Marketing</h3>
+                <p>Learning digital promotion and online communication.</p>
+            </div>
 
-        <div class="skill">Communication</div>
+            <div class="skill-card">
+                <div class="skill-icon">💡</div>
+                <h3>Content Creation</h3>
+                <p>Creative ideas and social media content.</p>
+            </div>
 
-        <div class="skill">Teamwork</div>
+            <div class="skill-card">
+                <div class="skill-icon">🤝</div>
+                <h3>Communication</h3>
+                <p>Teamwork, adaptability and time management.</p>
+            </div>
 
-        <div class="skill">Time Management</div>
-
-        <div class="skill">Adaptability</div>
-
+        </div>
     </div>
 </section>
 
 <!-- Education -->
 <section id="education">
-    <h2 class="section-title">My <span>Education</span></h2>
+    <div class="container">
 
-    <div class="cards">
-
-        <div class="card">
-            <h3>Bachelor of Business Administration (BBA)</h3>
-
-            <p><strong>Allenhouse Business School</strong></p>
-
-            <p>
-                Second Year | CGPA: 8.0/10 |
-                Expected Graduation: 2028
-            </p>
+        <div class="section-heading">
+            <span class="eyebrow">My learning journey</span>
+            <h2>Education & <span class="gradient-text">Learning</span></h2>
         </div>
 
-        <div class="card">
-            <h3>Intermediate</h3>
+        <div class="timeline">
 
-            <p>
-                <strong>
-                    UP Kirana Seva Samiti Balika Vidyalaya
-                </strong>
-            </p>
+            <article class="timeline-item">
+                <h3>Bachelor of Business Administration</h3>
+                <div class="meta">Allenhouse Business School · 2026</div>
 
-            <p>Completed: 2025</p>
+                <p>
+                    Currently pursuing BBA, with an interest in business
+                    management, digital marketing and technology.
+                </p>
+
+                <p><strong>CGPA:</strong> 8.0/10</p>
+                <p><strong>Expected graduation:</strong> 2028</p>
+            </article>
+
+            <article class="timeline-item">
+                <h3>Intermediate</h3>
+                <div class="meta">UP Kirana Seva Samiti Balika Vidyalaya · 2025</div>
+
+                <p>Completed Intermediate education in 2025.</p>
+            </article>
+
         </div>
-
     </div>
 </section>
 
 <!-- Experience -->
-<section id="experience">
-    <h2 class="section-title">Internship <span>Experience</span></h2>
+<section class="section-alt" id="experience">
+    <div class="container">
 
-    <div class="cards">
-
-        <div class="card">
-
-            <h3>
-                Digital Marketing and Social Media Content Creation Intern
-            </h3>
-
-            <p>
-                Created and supported social media content as part of
-                an internship experience focused on digital marketing.
-            </p>
-
-            <br>
-
-            <p>
-                Communicated and interacted with people to support
-                content-related activities and strengthen interpersonal
-                communication.
-            </p>
-
-            <br>
-
-            <p>
-                Developed communication and time-management skills
-                through practical workplace activities.
-            </p>
-
+        <div class="section-heading">
+            <span class="eyebrow">Practical exposure</span>
+            <h2>Internship <span class="gradient-text">Experience</span></h2>
         </div>
 
+        <div class="timeline">
+
+            <article class="timeline-item">
+                <h3>Digital Marketing & Social Media Content Creation</h3>
+
+                <div class="meta">Internship</div>
+
+                <p>
+                    Gained exposure to digital marketing and social media
+                    content-related activities.
+                </p>
+
+                <ul>
+                    <li>Supported social media content activities.</li>
+                    <li>Practised communication and interpersonal skills.</li>
+                    <li>Worked on time management and task coordination.</li>
+                </ul>
+            </article>
+
+        </div>
     </div>
 </section>
 
 <!-- Projects -->
 <section id="projects">
+    <div class="container">
 
-    <h2 class="section-title">My <span>Projects</span></h2>
-
-    <div class="cards">
-
-        <div class="card">
-
-            <h3>AI & Business Projects</h3>
-
+        <div class="section-heading">
+            <span class="eyebrow">Things I work on</span>
+            <h2>Featured <span class="gradient-text">Projects</span></h2>
             <p>
-                Currently building technical and business-oriented
-                projects to develop practical skills in Artificial
-                Intelligence, Machine Learning, data analysis and
-                digital technologies.
+                A place to showcase college assignments, presentations
+                and practical projects.
             </p>
+        </div>
 
-            <br>
+        <div class="projects-grid">
 
-            <p>
-                Projects will be added here as they are completed.
-            </p>
+            <article class="project-card">
+                <span class="project-number">PROJECT 01</span>
+                <h3>Market Segmentation Presentation</h3>
+
+                <p>
+                    A BBA marketing management presentation exploring
+                    the concept, bases and importance of market
+                    segmentation through business examples.
+                </p>
+
+                <span class="project-tag">Marketing</span>
+                <span class="project-tag">Research</span>
+                <span class="project-tag">Presentation</span>
+            </article>
+
+            <article class="project-card">
+                <span class="project-number">PROJECT 02</span>
+                <h3>Personal Portfolio Website</h3>
+
+                <p>
+                    A personal website designed to present my education,
+                    skills, interests and work in a professional format.
+                </p>
+
+                <span class="project-tag">HTML</span>
+                <span class="project-tag">CSS</span>
+                <span class="project-tag">Web Design</span>
+            </article>
 
         </div>
 
     </div>
-
-</section>
-
-<!-- Certifications -->
-<section>
-
-    <h2 class="section-title">
-        Certifications & <span>Achievements</span>
-    </h2>
-
-    <div class="cards">
-
-        <div class="card">
-
-            <p>
-                ✓ Digital Marketing and Social Media Content Creation
-                Internship Certificate
-            </p>
-
-            <br>
-
-            <p>
-                ✓ Certificates through participation and achievements
-                in multiple competitions
-            </p>
-
-        </div>
-
-    </div>
-
 </section>
 
 <!-- Interests -->
-<section>
+<section class="section-alt" id="interests">
+    <div class="container">
 
-    <h2 class="section-title">
-        Areas of <span>Interest</span>
-    </h2>
+        <div class="section-heading">
+            <span class="eyebrow">What inspires me</span>
+            <h2>Areas of <span class="gradient-text">Interest</span></h2>
+        </div>
 
-    <div class="interests">
-
-        <span class="interest">Artificial Intelligence</span>
-
-        <span class="interest">Machine Learning</span>
-
-        <span class="interest">Business Analytics</span>
-
-        <span class="interest">Data Analysis</span>
-
-        <span class="interest">Digital Marketing</span>
-
-        <span class="interest">Technology & Business</span>
+        <div class="interests">
+            <span class="interest">Business Analytics</span>
+            <span class="interest">Digital Marketing</span>
+            <span class="interest">Artificial Intelligence</span>
+            <span class="interest">Machine Learning</span>
+            <span class="interest">Data Analysis</span>
+            <span class="interest">Technology & Business</span>
+        </div>
 
     </div>
-
 </section>
 
 <!-- Contact -->
 <section id="contact">
+    <div class="container">
 
-    <h2 class="section-title">
-        Contact <span>Me</span>
-    </h2>
+        <div class="contact-box">
+            <span class="eyebrow">Have an opportunity?</span>
 
-    <div class="contact">
+            <h2>
+                Let's create something<br>
+                <span class="gradient-text">meaningful together.</span>
+            </h2>
 
-        <p>
-            📧
-            <a href="mailto:dikshapal283@gmail.com">
-                dikshapal283@gmail.com
-            </a>
-        </p>
+            <p>
+                Feel free to connect with me for professional
+                opportunities, collaboration and networking.
+            </p>
 
-        <br>
+            <div class="contact-links">
 
-        <p>
-            💻
-            <a href="https://github.com/dikshapal">
-                GitHub Profile
-            </a>
-        </p>
+                <a class="contact-link"
+                   href="mailto:dikshapal283@gmail.com">
+                    ✉ Email Me
+                </a>
 
-        <p>
-    📄
-    <a href="YOUR_RESUME_LINK" target="_blank">
-        View My Resume
-    </a>
-</p>
+                <a class="contact-link"
+                   href="https://www.linkedin.com/in/diksha-pal-488340420/"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    ↗ LinkedIn
+                </a>
+
+                <a class="contact-link"
+                   href="https://github.com/dikshapal01"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    ↗ GitHub
+                </a>
+
+                <a class="contact-link"
+                   href="resume.pdf"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    ↓ View Resume
+                </a>
+
+            </div>
+        </div>
+
     </div>
-
 </section>
 
+</main>
+
 <footer>
-    <p>© 2026 Diksha Pal | Portfolio</p>
+    <p>Designed with care by <span>Diksha Pal</span> · © 2026</p>
 </footer>
 
 </body>
